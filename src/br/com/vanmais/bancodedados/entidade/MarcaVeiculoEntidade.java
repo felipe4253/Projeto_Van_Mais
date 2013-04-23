@@ -7,10 +7,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 /**
  * @author Felipe Silva (felipe4253@gmail.com)
@@ -21,14 +24,14 @@ import javax.persistence.Table;
 public class MarcaVeiculoEntidade {
 	
 	@Id
-	@GeneratedValue()
-	@Column(name="cod_marca",nullable=false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="cod_marca", nullable=false, updatable=false, insertable=false)
 	private Long id;
 	
 	@Column(name="desc_marca")
 	private String descMarca;
 	
-	@OneToMany()
+	@OneToMany(mappedBy="marca", fetch = FetchType.LAZY)
 	private List<VeiculoEntidade> veiculos;
 	
 //GETTERS e SETTERS

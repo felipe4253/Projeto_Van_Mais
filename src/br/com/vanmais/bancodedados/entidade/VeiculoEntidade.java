@@ -7,8 +7,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,17 +26,19 @@ import javax.persistence.TemporalType;
 public class VeiculoEntidade {
 	
 	@Id
-	@GeneratedValue
-	@Column(name="cod_veic")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="cod_veic", nullable=false, updatable=false, insertable=false)
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cod_marca", nullable=false)
 	private MarcaVeiculoEntidade marca;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cod_tipo", nullable=false)
 	private TipoVeiculoEntidade tipoVeiculo;
 	
-	@Column(name="plac_veic")
+	@Column(name="plac_veic", unique=true, nullable=false)
 	private String placaVeiculo;
 	
 	@Column(name="ano_veic")
@@ -45,19 +50,19 @@ public class VeiculoEntidade {
 	@Column(name="mod_veic")
 	private String modVeiculo;
 	
-	@Column(name="wifi")
+	@Column(name="wifi", nullable=false)
 	private boolean wifi;
 	
-	@Column(name="ar_cond")
+	@Column(name="ar_cond", nullable=false)
 	private boolean arCondicionado;
 	
-	@Column(name="tv_veic")
+	@Column(name="tv_veic", nullable=false)
 	private boolean tv;
 	
-	@Column(name="sit_veic")
+	@Column(name="sit_veic", nullable=false)
 	private String sitVeiculo;
 	
-	@Column(name="dat_incl_veic")
+	@Column(name="dat_incl_veic", nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date datInclVeic;
 

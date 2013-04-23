@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,14 +22,14 @@ import javax.persistence.Table;
 public class TipoVeiculoEntidade {
 	
 	@Id
-	@Column(name="cod_tipo")
+	@Column(name="cod_tipo", nullable=false, updatable=false, insertable=false)
 	@GeneratedValue 
 	private Long id;
 	
 	@Column(name="desc_tipo")
 	private String descTipoVeiculo;
 	
-	@OneToMany
+	@OneToMany(mappedBy="tipoVeiculo", fetch = FetchType.LAZY)
 	private List<VeiculoEntidade> veiculos;
 
 	//GETTERS e SETTERS

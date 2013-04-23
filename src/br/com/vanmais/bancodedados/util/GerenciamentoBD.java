@@ -6,6 +6,7 @@ package br.com.vanmais.bancodedados.util;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Test;
@@ -30,6 +31,7 @@ public class GerenciamentoBD {
 			logger.info("Projeto Van Mais - Criando tabelas no banco de dados...");
 			Configuration config = new Configuration();
 			config.configure();
+			
 			new SchemaExport(config).create(true,true);
 			logger.info("Projeto Van Mais - Tabelas criadas com sucesso!");
 		}

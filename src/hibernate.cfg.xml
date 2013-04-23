@@ -9,9 +9,11 @@
         <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/test</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.show_sql">true</property>
         
         <mapping class="br.com.vanmais.bancodedados.entidade.MarcaVeiculoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.TipoVeiculoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.VeiculoEntidade" />
+        
     </session-factory>
 </hibernate-configuration>
