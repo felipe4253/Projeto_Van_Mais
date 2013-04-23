@@ -44,9 +44,6 @@ public class VeiculoEntidade {
 	@Column(name="ano_veic")
 	private Integer anoVeiculo;
 	
-	@Column(name="cor_veic")
-	private String corVeiculo;
-	
 	@Column(name="mod_veic")
 	private String modVeiculo;
 	
@@ -138,19 +135,7 @@ public class VeiculoEntidade {
 		this.anoVeiculo = anoVeiculo;
 	}
 
-	/**
-	 * @return the corVeiculo
-	 */
-	public String getCorVeiculo() {
-		return corVeiculo;
-	}
 
-	/**
-	 * @param corVeiculo the corVeiculo to set
-	 */
-	public void setCorVeiculo(String corVeiculo) {
-		this.corVeiculo = corVeiculo;
-	}
 
 	/**
 	 * @return the modVeiculo
@@ -247,8 +232,6 @@ public class VeiculoEntidade {
 				+ ((anoVeiculo == null) ? 0 : anoVeiculo.hashCode());
 		result = prime * result + (arCondicionado ? 1231 : 1237);
 		result = prime * result
-				+ ((corVeiculo == null) ? 0 : corVeiculo.hashCode());
-		result = prime * result
 				+ ((datInclVeic == null) ? 0 : datInclVeic.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
@@ -283,11 +266,6 @@ public class VeiculoEntidade {
 		} else if (!anoVeiculo.equals(other.anoVeiculo))
 			return false;
 		if (arCondicionado != other.arCondicionado)
-			return false;
-		if (corVeiculo == null) {
-			if (other.corVeiculo != null)
-				return false;
-		} else if (!corVeiculo.equals(other.corVeiculo))
 			return false;
 		if (datInclVeic == null) {
 			if (other.datInclVeic != null)
@@ -339,7 +317,7 @@ public class VeiculoEntidade {
 		return "VeiculoEntidade [id=" + id + ", marca=" + marca
 				+ ", tipoVeiculo=" + tipoVeiculo + ", placaVeiculo="
 				+ placaVeiculo + ", anoVeiculo=" + anoVeiculo + ", corVeiculo="
-				+ corVeiculo + ", modVeiculo=" + modVeiculo + ", wifi=" + wifi
+				+ ", modVeiculo=" + modVeiculo + ", wifi=" + wifi
 				+ ", arCondicionado=" + arCondicionado + ", tv=" + tv
 				+ ", sitVeiculo=" + sitVeiculo + ", datInclVeic=" + datInclVeic
 				+ "]";
