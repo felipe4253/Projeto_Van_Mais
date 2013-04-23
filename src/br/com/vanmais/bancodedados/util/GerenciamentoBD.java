@@ -6,7 +6,6 @@ package br.com.vanmais.bancodedados.util;
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Test;
