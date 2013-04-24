@@ -3,6 +3,8 @@
  */
 package br.com.vanmais.bancodedados.dao;
 
+import org.hibernate.Session;
+
 import br.com.vanmais.bancodedados.entidade.TipoVeiculoEntidade;
 import br.com.vanmais.bancodedados.interfaces.TipoVeiculoDAOInterface;
 import br.com.vanmais.bancodedados.util.dao.DAOGenerico;
@@ -13,5 +15,9 @@ import br.com.vanmais.bancodedados.util.dao.DAOGenerico;
  */
 public class TipoVeiculoDAO extends DAOGenerico<TipoVeiculoEntidade, Long>
 implements TipoVeiculoDAOInterface{
+
+	public TipoVeiculoDAO(Session sessao) {
+		super(sessao);
+	}
 	
 }

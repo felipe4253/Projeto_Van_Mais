@@ -29,10 +29,11 @@ public class TipoVeiculoEntidade {
 	@Column(name="desc_tipo")
 	private String descTipoVeiculo;
 	
+// Relacionamento com outras tabelas
+	
 	@OneToMany(mappedBy="tipoVeiculo", fetch = FetchType.LAZY)
 	private List<VeiculoEntidade> veiculos;
 
-	//GETTERS e SETTERS
 	/**
 	 * @return the id
 	 */

@@ -20,6 +20,13 @@
         <mapping class="br.com.vanmais.bancodedados.entidade.EstadoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.InstituicaoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.TipoInstituicaoEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.EmpresaEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.UsuarioClienteEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.AvaliacaoMotoristaEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.MotoristaEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.UsuarioClienteEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.ItinerarioEntidade" />
+        
         
     </session-factory>
 </hibernate-configuration>

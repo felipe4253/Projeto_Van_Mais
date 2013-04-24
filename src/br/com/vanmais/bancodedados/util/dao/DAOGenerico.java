@@ -25,7 +25,8 @@ public abstract class DAOGenerico <T, ID extends Serializable> implements DAOGen
 	private Session sessao;
 	
 	@SuppressWarnings("unchecked")
-	public DAOGenerico(){
+	public DAOGenerico(Session sessao){
+		this.sessao = sessao;
 		this.classeDePersistencia = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 	
@@ -46,15 +47,15 @@ public abstract class DAOGenerico <T, ID extends Serializable> implements DAOGen
 	@SuppressWarnings("unchecked")
 	public ID salvar(T obj){
 		
-		getSessao().beginTransaction();
-		Serializable id = (ID) getSessao().save(obj);
-		getSessao().getTransaction().commit();
-		return (ID) id;
+		//getSessao().beginTransaction();
+		//Serializable id = (ID) getSessao().save(obj);
+		//getSessao().getTransaction().commit();
 		
+		Serializable id = (ID) sessao.save(obj);
+		return (ID) id;
 	}
 	
 	@Override
-	@SuppressWarnings("unchecked")
 	public void atualizar (T obj){
 		getSessao().beginTransaction();
 		getSessao().update(obj);
@@ -62,7 +63,6 @@ public abstract class DAOGenerico <T, ID extends Serializable> implements DAOGen
 	}
 	
 	@Override
-	@SuppressWarnings("unchecked")
 	public void excluir(T obj){
 		getSessao().beginTransaction();
 		getSessao().delete(obj);
@@ -86,7 +86,8 @@ public abstract class DAOGenerico <T, ID extends Serializable> implements DAOGen
 		return this.classeDePersistencia;
 	}
 	
-	private List<T> buscarPorCriterio(Criterion... criterio){
+	@SuppressWarnings("unchecked")
+	public List<T> buscarPorCriterio(Criterion... criterio){
 		Criteria crit = getSessao().createCriteria(getClasseDePersistencia());
 		
 		for(Criterion c : criterio){
