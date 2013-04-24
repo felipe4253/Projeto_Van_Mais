@@ -17,6 +17,7 @@ import javax.persistence.Table;
  * @author Felipe Silva (felipe4253@gmail.com)
  *
  */
+//TODO Refazer getters e setters, hash equals e toString
 @Entity
 @Table(name="instituicao")
 public class InstituicaoEntidade {
@@ -36,6 +37,8 @@ public class InstituicaoEntidade {
 	@JoinColumn(name="cod_tipo_inst", nullable=false)
 	private TipoInstituicaoEntidade tipoInstituicao;
 	
-	//TODO Referenciar a entidade Bairro Entidade
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="cod_bairro", nullable=false)
+	private BairroEntidade bairro;
 	
 }

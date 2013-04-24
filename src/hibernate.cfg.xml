@@ -13,6 +13,7 @@
         
         <mapping class="br.com.vanmais.bancodedados.entidade.MarcaVeiculoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.TipoVeiculoEntidade" />
+        <mapping class="br.com.vanmais.bancodedados.entidade.VeiculoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.BairroEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.RegiaoEntidade" />
         <mapping class="br.com.vanmais.bancodedados.entidade.CidadeEntidade" />

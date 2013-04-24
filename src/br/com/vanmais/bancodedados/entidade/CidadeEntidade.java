@@ -35,68 +35,48 @@ public class CidadeEntidade {
 	private List<RegiaoEntidade> regioes;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="cod_estado")
+	@JoinColumn(name="cod_estado", nullable=false)
 	private EstadoEntidade estado;
 
-	/**
-	 * @return the codCidade
-	 */
 	public Long getCodCidade() {
 		return codCidade;
 	}
 
-	/**
-	 * @param codCidade the codCidade to set
-	 */
 	public void setCodCidade(Long codCidade) {
 		this.codCidade = codCidade;
 	}
 
-	/**
-	 * @return the descCidade
-	 */
 	public String getDescCidade() {
 		return descCidade;
 	}
 
-	/**
-	 * @param descCidade the descCidade to set
-	 */
 	public void setDescCidade(String descCidade) {
 		this.descCidade = descCidade;
 	}
 
-	/**
-	 * @return the regioes
-	 */
 	public List<RegiaoEntidade> getRegioes() {
 		return regioes;
 	}
 
-	/**
-	 * @param regioes the regioes to set
-	 */
 	public void setRegioes(List<RegiaoEntidade> regioes) {
 		this.regioes = regioes;
 	}
 
-	/**
-	 * @return the estado
-	 */
 	public EstadoEntidade getEstado() {
 		return estado;
 	}
 
-	/**
-	 * @param estado the estado to set
-	 */
 	public void setEstado(EstadoEntidade estado) {
 		this.estado = estado;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return "CidadeEntidade [codCidade=" + codCidade + ", descCidade="
+				+ descCidade + ", regioes=" + regioes + ", estado=" + estado
+				+ "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,9 +90,6 @@ public class CidadeEntidade {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -145,16 +122,5 @@ public class CidadeEntidade {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "CidadeEntidade [codCidade=" + codCidade + ", descCidade="
-				+ descCidade + ", regioes=" + regioes + ", estado=" + estado
-				+ "]";
-	}
-	
-	
 	
 }

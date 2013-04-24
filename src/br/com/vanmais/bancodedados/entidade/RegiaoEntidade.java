@@ -35,68 +35,48 @@ public class RegiaoEntidade {
 	private List<BairroEntidade> bairros;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="cod_cidade")
+	@JoinColumn(name="cod_cidade", nullable=false)
 	private CidadeEntidade cidade;
 
-	/**
-	 * @return the codRegiao
-	 */
 	public Long getCodRegiao() {
 		return codRegiao;
 	}
 
-	/**
-	 * @param codRegiao the codRegiao to set
-	 */
 	public void setCodRegiao(Long codRegiao) {
 		this.codRegiao = codRegiao;
 	}
 
-	/**
-	 * @return the descRegiao
-	 */
 	public String getDescRegiao() {
 		return descRegiao;
 	}
 
-	/**
-	 * @param descRegiao the descRegiao to set
-	 */
 	public void setDescRegiao(String descRegiao) {
 		this.descRegiao = descRegiao;
 	}
 
-	/**
-	 * @return the bairros
-	 */
 	public List<BairroEntidade> getBairros() {
 		return bairros;
 	}
 
-	/**
-	 * @param bairros the bairros to set
-	 */
 	public void setBairros(List<BairroEntidade> bairros) {
 		this.bairros = bairros;
 	}
 
-	/**
-	 * @return the cidade
-	 */
 	public CidadeEntidade getCidade() {
 		return cidade;
 	}
 
-	/**
-	 * @param cidade the cidade to set
-	 */
 	public void setCidade(CidadeEntidade cidade) {
 		this.cidade = cidade;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return "RegiaoEntidade [codRegiao=" + codRegiao + ", descRegiao="
+				+ descRegiao + ", bairros=" + bairros + ", cidade=" + cidade
+				+ "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,9 +90,6 @@ public class RegiaoEntidade {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -145,15 +122,5 @@ public class RegiaoEntidade {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "RegiaoEntidade [codRegiao=" + codRegiao + ", descRegiao="
-				+ descRegiao + ", bairros=" + bairros + ", cidade=" + cidade
-				+ "]";
-	}
-	
-	
+		
 }

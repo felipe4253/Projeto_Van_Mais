@@ -33,51 +33,36 @@ public class EstadoEntidade {
 	@OneToMany(mappedBy="estado", fetch=FetchType.LAZY)
 	private List<CidadeEntidade> cidades;
 
-	/**
-	 * @return the codEstado
-	 */
 	public Long getCodEstado() {
 		return codEstado;
 	}
 
-	/**
-	 * @param codEstado the codEstado to set
-	 */
 	public void setCodEstado(Long codEstado) {
 		this.codEstado = codEstado;
 	}
 
-	/**
-	 * @return the descEstado
-	 */
 	public String getDescEstado() {
 		return descEstado;
 	}
 
-	/**
-	 * @param descEstado the descEstado to set
-	 */
 	public void setDescEstado(String descEstado) {
 		this.descEstado = descEstado;
 	}
 
-	/**
-	 * @return the cidades
-	 */
 	public List<CidadeEntidade> getCidades() {
 		return cidades;
 	}
 
-	/**
-	 * @param cidades the cidades to set
-	 */
 	public void setCidades(List<CidadeEntidade> cidades) {
 		this.cidades = cidades;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return "EstadoEntidade [codEstado=" + codEstado + ", descEstado="
+				+ descEstado + ", cidades=" + cidades + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -90,9 +75,6 @@ public class EstadoEntidade {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -120,15 +102,5 @@ public class EstadoEntidade {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "EstadoEntidade [codEstado=" + codEstado + ", descEstado="
-				+ descEstado + ", cidades=" + cidades + "]";
-	}
-	
-	
 	
 }

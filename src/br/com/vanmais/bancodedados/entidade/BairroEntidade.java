@@ -3,6 +3,8 @@
  */
 package br.com.vanmais.bancodedados.entidade;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,74 +13,64 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  * @author Felipe Silva (felipe4253@gmail.com)
  *
  */
-@Entity
+
+//TODO Refazer getters e setters, hash equals e toString
+@Entity 
 @Table(name="bairro")
 public class BairroEntidade {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="cod_bairro")
 	private Long codBairro;
 	
 	@Column(name="desc_bairro")
 	private String descBairro;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="cod_regiao")
+	@JoinColumn(name="cod_regiao", nullable=false)
 	private RegiaoEntidade regiao;
 	
-	//TODO - Adicionar as listas das entidades que fazem referencia a esta entidade
+	@OneToMany(mappedBy="bairro", fetch=FetchType.LAZY)
+	private List<InstituicaoEntidade> instituicoes;
 
-	/**
-	 * @return the codBairro
-	 */
 	public Long getCodBairro() {
 		return codBairro;
 	}
 
-	/**
-	 * @param codBairro the codBairro to set
-	 */
 	public void setCodBairro(Long codBairro) {
 		this.codBairro = codBairro;
 	}
 
-	/**
-	 * @return the descBairro
-	 */
 	public String getDescBairro() {
 		return descBairro;
 	}
 
-	/**
-	 * @param descBairro the descBairro to set
-	 */
 	public void setDescBairro(String descBairro) {
 		this.descBairro = descBairro;
 	}
 
-	/**
-	 * @return the regiao
-	 */
 	public RegiaoEntidade getRegiao() {
 		return regiao;
 	}
 
-	/**
-	 * @param regiao the regiao to set
-	 */
 	public void setRegiao(RegiaoEntidade regiao) {
 		this.regiao = regiao;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return "BairroEntidade [codBairro=" + codBairro + ", descBairro="
+				+ descBairro + ", regiao=" + regiao + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -91,9 +83,6 @@ public class BairroEntidade {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -120,15 +109,7 @@ public class BairroEntidade {
 			return false;
 		return true;
 	}
+	
+	//TODO - Adicionar as listas das entidades que fazem referencia a esta entidade
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "BairroEntidade [codBairro=" + codBairro + ", descBairro="
-				+ descBairro + ", regiao=" + regiao + "]";
-	}
-	
-	
 }
