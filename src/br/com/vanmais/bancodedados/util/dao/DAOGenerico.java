@@ -46,11 +46,6 @@ public abstract class DAOGenerico <T, ID extends Serializable> implements DAOGen
 	@Override
 	@SuppressWarnings("unchecked")
 	public ID salvar(T obj){
-		
-		//getSessao().beginTransaction();
-		//Serializable id = (ID) getSessao().save(obj);
-		//getSessao().getTransaction().commit();
-		
 		Serializable id = (ID) sessao.save(obj);
 		return (ID) id;
 	}
