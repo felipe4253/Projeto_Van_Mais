@@ -30,7 +30,7 @@ public class GerenciamentoBD {
 		if(JOptionPane.showConfirmDialog(null, advertencia) == 0){
 			logger.info("Projeto Van Mais - Criando tabelas no banco de dados...");
 			Configuration config = new Configuration();
-			config.configure();
+			config.configure("hibernate.cfg.xml");	
 			
 			new SchemaExport(config).create(true,true);
 			logger.info("Projeto Van Mais - Tabelas criadas com sucesso!");

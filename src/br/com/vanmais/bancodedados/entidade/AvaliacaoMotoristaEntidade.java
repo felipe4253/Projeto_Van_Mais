@@ -28,7 +28,7 @@ public class AvaliacaoMotoristaEntidade {
 	@Column(name="niv_avaliacao")
 	private Integer nivelAvaliacao;
 	
-	@Column(name="desc_aval")
+	@Column(name="desc_aval", length = 900)
 	private String descricaoAvaliacao;
 	
 	@Column(name="sit_aval", nullable=true, columnDefinition="varchar(255) default 'ATIVO'")

@@ -9,7 +9,7 @@ public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 	
 	private HibernateUtil(){
-		sessionFactory = new Configuration().buildSessionFactory();
+		sessionFactory = new Configuration().configure().buildSessionFactory();
 	}
 	
 	public static Session getSession(Session session){
