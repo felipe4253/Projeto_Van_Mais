@@ -67,6 +67,10 @@ public class ItinerarioEntidade {
 		joinColumns = { @JoinColumn(name = "cod_iti") },
 		inverseJoinColumns = { @JoinColumn (name="cod_inst")}	)
 	private List<InstituicaoEntidade> instituicoes;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cod_turno", nullable=false)
+	private TurnoItinerarioEntidade turnoItinerario;
 
 	public Long getId() {
 		return Id;
@@ -140,6 +144,14 @@ public class ItinerarioEntidade {
 		this.instituicoes = instituicoes;
 	}
 
+	public TurnoItinerarioEntidade getTurnoItinerario() {
+		return turnoItinerario;
+	}
+
+	public void setTurnoItinerario(TurnoItinerarioEntidade turnoItinerario) {
+		this.turnoItinerario = turnoItinerario;
+	}
+
 	@Override
 	public String toString() {
 		return "ItinerarioEntidade [Id=" + Id + ", descItinerario="
@@ -147,7 +159,8 @@ public class ItinerarioEntidade {
 				+ ", datInclItinerario=" + datInclItinerario
 				+ ", sitItinerario=" + sitItinerario + ", veiculo=" + veiculo
 				+ ", motorista=" + motorista + ", bairros=" + bairros
-				+ ", instituicoes=" + instituicoes + "]";
+				+ ", instituicoes=" + instituicoes + ", turnoItinerario="
+				+ turnoItinerario + "]";
 	}
 
 	@Override
@@ -169,6 +182,8 @@ public class ItinerarioEntidade {
 				+ ((motorista == null) ? 0 : motorista.hashCode());
 		result = prime * result
 				+ ((sitItinerario == null) ? 0 : sitItinerario.hashCode());
+		result = prime * result
+				+ ((turnoItinerario == null) ? 0 : turnoItinerario.hashCode());
 		result = prime * result + ((veiculo == null) ? 0 : veiculo.hashCode());
 		return result;
 	}
@@ -219,6 +234,11 @@ public class ItinerarioEntidade {
 				return false;
 		} else if (!sitItinerario.equals(other.sitItinerario))
 			return false;
+		if (turnoItinerario == null) {
+			if (other.turnoItinerario != null)
+				return false;
+		} else if (!turnoItinerario.equals(other.turnoItinerario))
+			return false;
 		if (veiculo == null) {
 			if (other.veiculo != null)
 				return false;
@@ -227,6 +247,7 @@ public class ItinerarioEntidade {
 		return true;
 	}
 
+	
 		
 	
 	

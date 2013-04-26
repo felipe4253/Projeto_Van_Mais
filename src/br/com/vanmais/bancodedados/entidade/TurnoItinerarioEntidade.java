@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,67 +19,52 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="tipo_veiculo")
-public class TipoVeiculoEntidade {
+@Table(name="turno_itinerario")
+public class TurnoItinerarioEntidade {
 	
 	@Id
-	@Column(name="cod_tipo")
-	@GeneratedValue 
+	@Column(name="cod_turno")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="desc_tipo")
+	@Column(name="desc_turno")
 	private String descTipoVeiculo;
 	
-// Relacionamento com outras tabelas
+	//Relacionamento com outras tabelas
 	
-	@OneToMany(mappedBy="tipoVeiculo", fetch = FetchType.LAZY)
-	private List<VeiculoEntidade> veiculos;
+	@OneToMany(mappedBy="turnoItinerario", fetch = FetchType.LAZY)
+	private List<ItinerarioEntidade> itinerarios;
 
-	/**
-	 * @return the id
-	 */
 	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the descTipoVeiculo
-	 */
 	public String getDescTipoVeiculo() {
 		return descTipoVeiculo;
 	}
 
-	/**
-	 * @param descTipoVeiculo the descTipoVeiculo to set
-	 */
 	public void setDescTipoVeiculo(String descTipoVeiculo) {
 		this.descTipoVeiculo = descTipoVeiculo;
 	}
 
-	/**
-	 * @return the veiculos
-	 */
-	public List<VeiculoEntidade> getVeiculos() {
-		return veiculos;
+	public List<ItinerarioEntidade> getItinerarios() {
+		return itinerarios;
 	}
 
-	/**
-	 * @param veiculos the veiculos to set
-	 */
-	public void setVeiculos(List<VeiculoEntidade> veiculos) {
-		this.veiculos = veiculos;
+	public void setItinerarios(List<ItinerarioEntidade> itinerarios) {
+		this.itinerarios = itinerarios;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	@Override
+	public String toString() {
+		return "TurnoItinerarioEntidade [id=" + id + ", descTipoVeiculo="
+				+ descTipoVeiculo + ", itinerarios=" + itinerarios + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,13 +73,10 @@ public class TipoVeiculoEntidade {
 				+ ((descTipoVeiculo == null) ? 0 : descTipoVeiculo.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
-				+ ((veiculos == null) ? 0 : veiculos.hashCode());
+				+ ((itinerarios == null) ? 0 : itinerarios.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,7 +85,7 @@ public class TipoVeiculoEntidade {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TipoVeiculoEntidade other = (TipoVeiculoEntidade) obj;
+		TurnoItinerarioEntidade other = (TurnoItinerarioEntidade) obj;
 		if (descTipoVeiculo == null) {
 			if (other.descTipoVeiculo != null)
 				return false;
@@ -113,24 +96,13 @@ public class TipoVeiculoEntidade {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (veiculos == null) {
-			if (other.veiculos != null)
+		if (itinerarios == null) {
+			if (other.itinerarios != null)
 				return false;
-		} else if (!veiculos.equals(other.veiculos))
+		} else if (!itinerarios.equals(other.itinerarios))
 			return false;
 		return true;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "TipoVeiculoEntidade [id=" + id + ", descTipoVeiculo="
-				+ descTipoVeiculo + ", veiculos=" + veiculos + "]";
-	}
-	
-	
 	
 	
 	
