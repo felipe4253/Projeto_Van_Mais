@@ -18,7 +18,4 @@ public class MarcaVeiculoDAO extends DAOGenerico<MarcaVeiculoEntidade, Long> {
 		super(sessao); 
 	}
 	
-	public void teste(){
-		System.out.println("Teste");
-	}
 }

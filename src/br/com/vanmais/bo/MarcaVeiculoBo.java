@@ -3,8 +3,9 @@
  */
 package br.com.vanmais.bo;
 
+import java.util.List;
+
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import br.com.vanmais.bancodedados.dao.MarcaVeiculoDAO;
 import br.com.vanmais.bancodedados.entidade.MarcaVeiculoEntidade;
@@ -19,17 +20,12 @@ public class MarcaVeiculoBo {
 	
 	private MarcaVeiculoDAO dao;
 	private Session sessao;
-	private Transaction transacao;
 	
-	public void salvar(MarcaVeiculoEntidade mv){
-		
+	public List<MarcaVeiculoEntidade> buscarTodos(){
 		sessao = HibernateUtil.getSession(sessao);
-		transacao.begin();
-		
 		dao = new MarcaVeiculoDAO(sessao);
-		dao.salvar(mv);
-		
-		transacao.commit();
-		sessao.close();
+		List<MarcaVeiculoEntidade> lista = dao.buscarTodos();
+		return lista;
 	}
+	
 }

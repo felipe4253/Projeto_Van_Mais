@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">Senha123</property>
+        <property name="hibernate.connection.password">VanMais</property>
         <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/Projeto_Van_Mais</property>
-        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.username">VanMais</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
         
