@@ -24,6 +24,6 @@ public class VeiculoDAO extends DAOGenerico<VeiculoEntidade, Long>
 	
 	public List<VeiculoEntidade> buscarPorMotorista(MotoristaEntidade motorista){
 		String sql = "select ";
-		getSessao().createSQLQuery(arg0)
+		return null;
 	}
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.vanmais.bo;
+package br.com.vanmais.facade;
 
 import java.util.List;
 
@@ -26,6 +26,13 @@ public class MarcaVeiculoBo {
 		dao = new MarcaVeiculoDAO(sessao);
 		List<MarcaVeiculoEntidade> lista = dao.buscarTodos();
 		return lista;
+	}
+	
+	public MarcaVeiculoEntidade buscarPorId(Long id){
+		sessao = HibernateUtil.getSession(sessao);
+		dao = new MarcaVeiculoDAO(sessao);
+		return dao.buscarPeloId(id);
+		
 	}
 	
 }

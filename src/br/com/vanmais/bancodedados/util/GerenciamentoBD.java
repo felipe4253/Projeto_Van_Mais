@@ -43,7 +43,6 @@ public class GerenciamentoBD {
 		Configuration config = new Configuration();
 		config.configure();
 		new SchemaExport(config).drop(true,true);
-		
 	}
 	
 }
